@@ -6,21 +6,19 @@ from django.contrib.auth.decorators import login_required
 #from django.contrib.auth import views as auth_views
 from .forms import UserForm
 #from .models import Profile
-""""
+
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from .serializer import UserSerializer
-"""
-#from interport.serializers import UserSerializer, GroupSerializer
+from .serializers import UserSerializer
 
-""""
+
 class UserList(APIView):
 	def get(self, request):
 		users = User.objects.all()
 		serializer = UserSerializer(users, many=True)
 		return Response(serializer.data)
-"""
+
 
 # Create your views here.
 
