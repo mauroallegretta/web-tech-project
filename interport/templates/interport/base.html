@@ -1,0 +1,107 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>International Gallery</title>
+	  <!-- Compiled and minified CSS -->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+  <link href="{% static 'css/interport.css' %}" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lobster|Raleway:300" rel="stylesheet">
+
+
+  <!-- Compiled and minified JavaScript -->
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+  <script type="text/javascript" src="{% static 'js\script.js' %}"></script>
+
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+
+
+<body>
+<header>
+
+    <div class="row">
+      <div class="black col s12">
+      {% if user.is_authenticated %}
+          <p class=" white-text">Welcome {{ user.username }}! <a href="{% url 'logout' %}" class="white-text text-lighten-4 right btn red">logout</a></p>          
+      {% else %}
+        <a href="{% url 'login'%}" class="white-text text-lighten-4 right btn green">login</a>
+        <a href="{% url 'register_user' %}" class="white-text text-lighten-4 right btn purple">register</a>
+      {% endif %}
+     </div>
+    </div>
+
+<div class="container">
+
+    <div class="row top-page hoverable">    
+
+     <a href="{% url 'home' %}">
+     <div class="col s12">
+         <h1 id="main-title" class="text-center">International Portfolio</h1>  
+     </div>  
+     </a>
+
+     <div class="row">    
+      <div class="col s3">
+        <a href="{% url 'idea' %}">  
+         <h3 id="bar-options" >idea</h3>
+        </a>
+      </div>
+
+       <div class="col s3">
+        <a href="{% url 'author' %}">  
+         <h3 id="bar-options">author</h3>
+        </a>
+      </div>
+
+      <div class="col s3">
+        <a href="{% url 'future' %}">  
+         <h3 id="bar-options">future</h3>
+        </a>
+      </div>
+
+      <div class="col s3">
+        <a href="{% url 'user_list' %}">  
+         <h3 id="bar-options">people</h3>
+        </a>
+      </div>
+
+
+     </div> 
+    </div>
+</div>  
+</header>
+
+
+
+<main>
+    {% block content %}
+    {% endblock %}
+</main>
+
+<footer class="page-footer #a1887f brown lighten-2">
+  <div class="container">
+     <div class="row">
+        <div class="col l6 s12">
+          <a href="https://www.tue.nl/" class="white-text text-lighten-4 center btn blue" >TU/e</a>
+          <p class="white-text text-lighten-4">Technical University of Eindhoven</p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <p class="white-text">Web Technologies Assignment 1</p>
+        </div>
+      </div>
+  </div>
+  <div class="black footer-copyright">
+     <div class="container">
+        © 2016
+        <a href="http://www.win.tue.nl/~jvanscho/" class="white-text text-lighten-4 right btn red" >course</a>
+      </div>
+  </div>
+</footer>
+
+</body>
+</html>

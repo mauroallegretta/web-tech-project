@@ -1,0 +1,17 @@
+{% extends 'interport/base.html' %}
+
+{% block content %}
+<main>
+  <div class="container">
+  <div class="row card-panel #fff8e1 amber lighten-5">
+    <div class="col s12">
+    <h5>Name:</h5><p>{{ User.first_name}} {{User.last_name}}</p>
+    <h5>Username:</h5><p>{{ User.username}}</p>
+    <h5>Email:</h5><p>{{ User.email }}</p>
+    <h5>Country:<p>{{ User.profile.country }}</p></h5>     
+
+    </div>
+   </div>
+  </div>
+</main>
+{% endblock content %}
