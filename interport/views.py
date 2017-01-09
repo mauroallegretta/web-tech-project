@@ -5,18 +5,23 @@ from django.contrib.auth.decorators import login_required
 #from django.contrib.auth import authenticate, login
 #from django.contrib.auth import views as auth_views
 from .forms import UserForm
-#from .models import Profile
+from .models import Person
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from .serializers import UserSerializer
-
+from .serializers import UserSerializer, PersonSerializer
 
 class UserList(APIView):
 	def get(self, request):
 		users = User.objects.all()
 		serializer = UserSerializer(users, many=True)
+		return Response(serializer.data)
+
+class PersonList(APIView):
+	def get(self, request):
+		persons = Person.objects.all()
+		serializer = UserSerializer(persons, many=True)
 		return Response(serializer.data)
 
 
@@ -41,6 +46,10 @@ def user_profile(request, pk):
 def user_list(request):
 	users = User.objects.all()
 	return render(request, 'interport/user_list.html', {'users':users})
+
+def person_list(request):
+	persons = Person.objects.all()
+	return render(request, 'interport/person_list.html', {'persons':persons})
 
 def register_user(request):
 	if request.method == "POST":

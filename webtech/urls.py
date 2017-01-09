@@ -23,6 +23,8 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^users/', views.UserList.as_view()),
     url(r'^users/(?P<pk>[0-9]+)$', views.UserList.as_view()),
+    url(r'^person/', views.PersonList.as_view()),
+    url(r'^person/(?P<pk>[0-9]+)$', views.PersonList.as_view()),
     url(r'', include('interport.urls')),
 ]
 

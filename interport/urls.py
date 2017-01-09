@@ -8,6 +8,7 @@ urlpatterns = [
     url(r'^logout/$', auth_views.logout, {'next_page': '/'}, name='logout'),
     url(r'^register_user$', views.register_user, name='register_user'),
     url(r'^user_list$', views.user_list, name='user_list'),
+    url(r'^person_list$', views.person_list, name='person_list'),
     url(r'^future/$', views.future, name='future'),
     url(r'^author/$', views.author, name='author'),
     url(r'^idea/$', views.idea, name='idea'),

@@ -1,0 +1,23 @@
+{% extends 'interport/base.html' %}
+
+{% block content %}
+   
+   {% for users in users %}
+  <div class="container">
+  <div class="row card-panel #fff8e1 amber lighten-5">
+    <div class="col s12">
+
+    <h5>Name:</h5><p>{{ persons.name }}</p>
+    <h5>Country:</h5><p>{{ persons.country }}</p>
+    <h5>City:</h5><p>{{ persons.city }}</p>
+    <h5>Age:</h5><p>{{ persons.age }}</p>
+    <h5>Description:</h5><p>{{ persons.description }}</p>
+
+    
+    </div>
+   </div>
+  </div>
+    
+  {% endfor %}
+
+{% endblock content %}
