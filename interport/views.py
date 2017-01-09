@@ -46,7 +46,8 @@ def user_profile(request, pk):
 def user_list(request):
 	users = User.objects.all()
 	return render(request, 'interport/user_list.html', {'users':users})
-
+	
+@login_required
 def person_list(request):
 	persons = Person.objects.all()
 	return render(request, 'interport/person_list.html', {'persons':persons})
